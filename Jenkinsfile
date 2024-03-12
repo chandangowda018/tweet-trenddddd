@@ -1,16 +1,15 @@
-piepline{
-    agent{
-        node{
+pipeline {
+    agent {
+        node {
             label 'maven'
         }
     }
-    stage {
-        stage("bClone-code"){
+    stages {
+        stage("Clone-code") {
             steps {
-                git branch: 'main' , url: 'https://github.com/chandangowda018/tweet-trenddddd.git'
-         
+                git branch: 'main', url: 'https://github.com/chandangowda018/tweet-trenddddd.git'
             }
         }
-    }    
-  
+        // Add more stages as needed
+    }
 }
