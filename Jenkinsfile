@@ -1,16 +1,18 @@
-piepline{
-    agent{
-        node{
+pipeline {
+    agent {
+        node {
             label 'maven'
         }
     }
-    stage {
-        stage("bClone-code"){
+    environment {
+        PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
+    }
+    stages {
+        stage("Build") {
             steps {
-                git branch: 'main' , url: 'https://github.com/chandangowda018/tweet-trenddddd.git'
-         
+                sh 'mvn clean install'
             }
         }
-    }    
-  
+    }
 }
+
